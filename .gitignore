@@ -1,4 +1,5 @@
-.idea
+.idea/
 src/test
+src/main/resources
 target/
 DataStructures.iml
