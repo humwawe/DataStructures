@@ -12,6 +12,7 @@ public class LinkedListMap<K, V> implements Map<K, V> {
         size = 0;
     }
 
+    @Override
     public void add(K key, V value) {
         Node node = getNode(key);
         if (node == null) {
@@ -22,6 +23,7 @@ public class LinkedListMap<K, V> implements Map<K, V> {
         }
     }
 
+    @Override
     public V remove(K key) {
         Node prev = dummyHead;
         while (prev.next != null) {
@@ -41,15 +43,18 @@ public class LinkedListMap<K, V> implements Map<K, V> {
         return null;
     }
 
+    @Override
     public boolean contains(K key) {
         return getNode(key) != null;
     }
 
+    @Override
     public V get(K key) {
         Node node = getNode(key);
         return node == null ? null : node.value;
     }
 
+    @Override
     public void set(K key, V newValue) {
         Node node = getNode(key);
         if (node == null) {
@@ -58,10 +63,12 @@ public class LinkedListMap<K, V> implements Map<K, V> {
         node.value = newValue;
     }
 
+    @Override
     public int getSize() {
         return size;
     }
 
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }

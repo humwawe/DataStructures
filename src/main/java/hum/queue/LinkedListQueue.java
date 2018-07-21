@@ -14,14 +14,17 @@ public class LinkedListQueue<E> implements Queue<E> {
         size = 0;
     }
 
+    @Override
     public int getSize() {
         return size;
     }
 
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
 
+    @Override
     public void enqueue(E e) {
         if (tail == null) {
             tail = new Node(e);
@@ -33,6 +36,7 @@ public class LinkedListQueue<E> implements Queue<E> {
         size++;
     }
 
+    @Override
     public E dequeue() {
         if (isEmpty()) {
             throw new IllegalArgumentException("Cannot dequeue from an empty queue.");
@@ -48,6 +52,7 @@ public class LinkedListQueue<E> implements Queue<E> {
         return retNode.e;
     }
 
+    @Override
     public E getFront() {
         if (isEmpty()) {
             throw new IllegalArgumentException("Queue is empty.");

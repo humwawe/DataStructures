@@ -24,14 +24,17 @@ public class LoopQueue<E> implements Queue<E> {
         return data.length - 1;
     }
 
+    @Override
     public int getSize() {
         return size;
     }
 
+    @Override
     public boolean isEmpty() {
         return front == tail;
     }
 
+    @Override
     public void enqueue(E e) {
         if ((tail + 1) % data.length == front) {
             resize(getCapacity() * 2);
@@ -41,6 +44,7 @@ public class LoopQueue<E> implements Queue<E> {
         size++;
     }
 
+    @Override
     public E dequeue() {
         if (isEmpty()) {
             throw new IllegalArgumentException("Cannot dequeue from an empty queue.");
@@ -56,6 +60,7 @@ public class LoopQueue<E> implements Queue<E> {
         return ret;
     }
 
+    @Override
     public E getFront() {
         if (isEmpty()) {
             throw new IllegalArgumentException("Queue is empty.");

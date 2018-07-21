@@ -9,7 +9,13 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class FileOperation {
-    // 读取文件名称为filename中的内容，并将其中包含的所有词语放进words中
+    /**
+     * 读取文件名称为filename中的内容，并将其中包含的所有词语放进words中
+     *
+     * @param filename
+     * @param words
+     * @return
+     */
     public static boolean readFile(String filename, ArrayList<String> words) {
         if (filename == null || words == null) {
             System.out.println("filename is null or words is null");
@@ -55,7 +61,13 @@ public class FileOperation {
         return true;
     }
 
-    // 寻找字符串s中，从start的位置开始的第一个字母字符的位置
+    /**
+     * 寻找字符串s中，从start的位置开始的第一个字母字符的位置
+     *
+     * @param s
+     * @param start
+     * @return
+     */
     private static int firstCharacterIndex(String s, int start) {
 
         for (int i = start; i < s.length(); i++) {

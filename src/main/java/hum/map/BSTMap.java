@@ -13,10 +13,12 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
         size = 0;
     }
 
+    @Override
     public void add(K key, V value) {
         root = add(root, key, value);
     }
 
+    @Override
     public V remove(K key) {
         Node node = getNode(root, key);
         if (node != null) {
@@ -26,15 +28,18 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
         return null;
     }
 
+    @Override
     public boolean contains(K key) {
         return getNode(root, key) != null;
     }
 
+    @Override
     public V get(K key) {
         Node node = getNode(root, key);
         return node == null ? null : node.value;
     }
 
+    @Override
     public void set(K key, V newValue) {
         Node node = getNode(root, key);
         if (node == null) {
@@ -44,10 +49,12 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
         node.value = newValue;
     }
 
+    @Override
     public int getSize() {
         return size;
     }
 
+    @Override
     public boolean isEmpty() {
         return size == 0;
     }
