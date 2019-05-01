@@ -1,4 +1,4 @@
-package hum.graph.weightedGraph;
+package hum.graph.unweighted;
 
 
 import java.util.ArrayList;
@@ -6,13 +6,13 @@ import java.util.ArrayList;
 /**
  * @author hum
  */
-public class WListGraph implements WGraph {
+public class ListGraph implements Graph {
     private int N, M;
     private boolean directed;
-    private ArrayList<Edge>[] g;
+    private ArrayList<Integer>[] g;
 
 
-    public WListGraph(int n, boolean directed) {
+    public ListGraph(int n, boolean directed) {
         this.N = n;
         this.M = 0;
         this.directed = directed;
@@ -24,14 +24,14 @@ public class WListGraph implements WGraph {
     }
 
     @Override
-    public void addEdge(int v, int w, double weight) {
+    public void addEdge(int v, int w) {
         if (v < 0 || v >= N || w < 0 || w >= N) {
             throw new IllegalArgumentException("vertex doesn't exist.");
         }
 
-        g[v].add(new Edge(v, w, weight));
+        g[v].add(w);
         if (v != w && !directed) {
-            g[w].add(new Edge(w, v, weight));
+            g[w].add(v);
         }
         M++;
     }
@@ -42,7 +42,7 @@ public class WListGraph implements WGraph {
             throw new IllegalArgumentException("vertex doesn't exist.");
         }
         for (int i = 0; i < g[v].size(); i++) {
-            if (g[v].get(i).otherVertex(v) == w) {
+            if (g[v].get(i) == w) {
                 return true;
             }
         }
@@ -65,7 +65,7 @@ public class WListGraph implements WGraph {
         for (int i = 0; i < N; i++) {
             System.out.print(i + " : ");
             for (int j = 0; j < g[i].size(); j++) {
-                System.out.print("( to:" + g[i].get(j).getD() + ", wt:" + g[i].get(j).getWeight() + ") ");
+                System.out.print(g[i].get(j) + " ");
             }
             System.out.println();
         }
@@ -80,7 +80,7 @@ public class WListGraph implements WGraph {
     }
 
     @Override
-    public Edge indexEdge(int v, int index) {
+    public int indexVertex(int v, int index) {
         if (v < 0 || v >= N || index < 0 || index >= junctionVertex(v)) {
             throw new IllegalArgumentException("vertex doesn't exist.");
         }

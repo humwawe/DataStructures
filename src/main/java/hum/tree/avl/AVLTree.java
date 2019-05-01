@@ -1,4 +1,4 @@
-package hum.tree.avlTree;
+package hum.tree.avl;
 
 import java.util.ArrayList;
 

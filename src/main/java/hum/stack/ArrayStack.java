@@ -1,6 +1,6 @@
 package hum.stack;
 
-import hum.Array.Array;
+import hum.array.Array;
 
 /**
  * @author hum

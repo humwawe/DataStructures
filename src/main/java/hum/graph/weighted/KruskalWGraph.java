@@ -1,4 +1,4 @@
-package hum.graph.weightedGraph;
+package hum.graph.weighted;
 
 import hum.unionfind.UF;
 import hum.unionfind.UnionFind6;

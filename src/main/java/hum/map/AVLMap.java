@@ -1,6 +1,6 @@
 package hum.map;
 
-import hum.tree.avlTree.AVLTree;
+import hum.tree.avl.AVLTree;
 
 /**
  * @author hum

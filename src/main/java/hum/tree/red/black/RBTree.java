@@ -1,4 +1,4 @@
-package hum.tree.redBlackTree;
+package hum.tree.red.black;
 
 /**
  * 左倾红黑树，没有删除（难）

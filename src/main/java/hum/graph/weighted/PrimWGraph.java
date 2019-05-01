@@ -1,27 +1,34 @@
-package hum.graph.weightedGraph;
+package hum.graph.weighted;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Queue;
 
 /**
  * @author hum
  */
-public class LazyPrimWGraph {
+public class PrimWGraph {
     int N;
     private WGraph graph;
     private boolean[] marked;
-    private Queue<Edge> queue;
+    /**
+     * 可以用更好的数据结构，比如索引堆，map等
+     */
+    private List<Edge> edgeTo;
     private List<Edge> mst;
     private double mstWeight;
+    private Edge temp;
 
-    public LazyPrimWGraph(WGraph graph) {
+    public PrimWGraph(WGraph graph) {
         N = graph.getV();
         this.graph = graph;
-        queue = new PriorityQueue<>();
+        edgeTo = new ArrayList<>();
         marked = new boolean[N];
         mst = new ArrayList<>();
+        temp = new Edge(-1, -1, Double.MAX_VALUE);
+        for (int i = 0; i < N; i++) {
+            edgeTo.add(temp);
+        }
+
 
         prim(0);
 
@@ -33,17 +40,10 @@ public class LazyPrimWGraph {
 
     public void prim(int s) {
         visit(s);
-        while (!queue.isEmpty()) {
-            Edge e = queue.poll();
-            if (marked[e.getS()] == marked[e.getD()]) {
-                continue;
-            }
+        while (getMinEdge() != temp) {
+            Edge e = getMinEdge();
             mst.add(e);
-            if (!marked[e.getS()]) {
-                visit(e.getS());
-            } else {
-                visit(e.getD());
-            }
+            visit(e.getD());
         }
     }
 
@@ -55,10 +55,25 @@ public class LazyPrimWGraph {
 
         for (int j = 0; j < graph.junctionVertex(v); j++) {
             Edge next = graph.indexEdge(v, j);
-            if (!marked[next.otherVertex(v)]) {
-                queue.add(next);
+            int w = next.otherVertex(v);
+            if (!marked[w]) {
+                if (next.compareTo(edgeTo.get(w)) < 0) {
+                    edgeTo.set(w, next);
+                }
             }
         }
+    }
+
+    private Edge getMinEdge() {
+        Edge minEdge = temp;
+        for (int i = 0; i < N; i++) {
+            if (!marked[i]) {
+                if (edgeTo.get(i).compareTo(minEdge) < 0) {
+                    minEdge = edgeTo.get(i);
+                }
+            }
+        }
+        return minEdge;
     }
 
 

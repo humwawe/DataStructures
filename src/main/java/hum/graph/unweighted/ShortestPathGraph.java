@@ -1,4 +1,4 @@
-package hum.graph.unweightedGraph;
+package hum.graph.unweighted;
 
 import java.util.ArrayDeque;
 import java.util.LinkedList;

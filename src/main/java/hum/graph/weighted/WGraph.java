@@ -1,10 +1,10 @@
-package hum.graph.unweightedGraph;
+package hum.graph.weighted;
 
 /**
  * @author hum
  */
-public interface Graph {
-    public void addEdge(int v, int w);
+public interface WGraph {
+    public void addEdge(int v, int w, double weight);
 
     public boolean hasEdge(int v, int w);
 
@@ -16,7 +16,7 @@ public interface Graph {
 
     public int junctionVertex(int v);
 
-    public int indexVertex(int v, int index);
+    public Edge indexEdge(int v, int index);
 
 
 }

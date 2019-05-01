@@ -1,4 +1,4 @@
-package hum.tree.segmentTree;
+package hum.tree.segment;
 
 import hum.util.Merger;
 

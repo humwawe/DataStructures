@@ -1,4 +1,4 @@
-package hum.graph.unweightedGraph;
+package hum.graph.unweighted;
 
 /**
  * @author hum

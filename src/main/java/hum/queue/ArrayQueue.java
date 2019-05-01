@@ -1,6 +1,6 @@
 package hum.queue;
 
-import hum.Array.Array;
+import hum.array.Array;
 
 /**
  * @author hum

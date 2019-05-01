@@ -1,7 +1,7 @@
 package hum.util;
 
-import hum.graph.unweightedGraph.Graph;
-import hum.graph.weightedGraph.WGraph;
+import hum.graph.unweighted.Graph;
+import hum.graph.weighted.WGraph;
 
 import java.io.BufferedInputStream;
 import java.io.File;
